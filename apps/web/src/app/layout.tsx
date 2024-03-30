@@ -1,9 +1,7 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-
-import { Layout } from "@/components/WagmiLayout";
-
-import "./globals.css";
+import { FixedPlugin, Layout } from "@/components";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -12,8 +10,9 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Pawpoint App",
-  description: "A  Work to earn platform for pet lovers",
+  title: "NextJS Tailwind Blog Post Details Page",
+  description:
+    "Download Tailwind Blog Page, a Free Template developed by Creative Tim. Based on Tailwind CSS and Material Tailwind, see the live demo on our site and start sharing your stories with the world.",
 };
 
 export default function RootLayout({
@@ -23,11 +22,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      {/* <Head>
-        <link rel="icon" href="/favicon.ico" />
-      </Head> */}
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
+        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+      </head>
       <body className={roboto.className}>
-        <Layout>{children}</Layout>
+        <Layout>
+          {children}
+          <FixedPlugin />
+        </Layout>
       </body>
     </html>
   );

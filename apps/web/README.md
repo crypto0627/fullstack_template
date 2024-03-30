@@ -1,55 +1,94 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# [NextJS Tailwind Blog Post Details Page](http://demos.creative-tim.com/nextjs-tailwind-blog-post-details-page?ref=readme-ntbpdp) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?url=https://www.creative-tim.com/product/nextjs-tailwind-blog-post-details-page&text=Check%20Material%20Tailwind%202%20Template%20made%20by%20@CreativeTim%20#webdesign%20#template%20#materialdesign%20#react%20https://www.creative-tim.com/product/nextjs-tailwind-blog-post-details-page)
 
-## Getting Started
+![version](https://img.shields.io/badge/version-1.0.0-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/nextjs-tailwind-blog-post-details-page.svg)](https://github.com/creativetimofficial/nextjs-tailwind-blog-post-details-page/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/nextjs-tailwind-blog-post-details-page.svg)](https://github.com/creativetimofficial/nextjs-tailwind-blog-post-details-page/issues?q=is%3Aissue+is%3Aclosed)
 
-Get WALLETCONNECT_PROJECT_ID and create Email to send the information to your customer who buy the product
+![Image](https://s3.amazonaws.com/creativetim_bucket/products/747/original/material-tailwind-react-blog-post-details-template-thumbnail.jpg)
 
-1. copy .env.example to .env and fill in with your personal key and account
+Introducing Tailwind Blog Page, a modern and feature-rich blog template built on the foundation of Tailwind CSS and Material Tailwind.
 
-2. install by pnpm
+Are you in search of a professionally designed and highly customizable blog template tailored for bloggers, writers, and content creators to establish a strong online presence and share their thoughts with the world? Look no further! We are excited to present to you our Free Blog Page Template, meticulously crafted to cater to the needs of blog website developers like you.
 
-3. run the docker and migrate
+This template, designed with Tailwind CSS and Material Tailwind, offers effortless customization to align perfectly with your website's unique branding. The free blog template includes essential features such as a hero, categories, blog posts, and related articles sections.
 
-4. use pnpm run dev to start
+**Documentation built by Developers**
 
-Other,
+Each element is well presented in very complex documentation.
 
-```bash
-copy .env.example to .env
+You can read more about the [documentation here](https://www.material-tailwind.com/docs/react/installation).
 
-pnpm i
+**HELPFUL LINKS**
 
-docker compose up -d
+- View [Github Repository](https://github.com/creativetimofficial/nextjs-tailwind-blog-post-details-page)
+- Check [FAQ Page](https://www.creative-tim.com/faq)
 
-pnpm migrate
+## [Demo](https://creative-tim.com/product/nextjs-tailwind-blog-post-details-page)
 
-pnpm run dev
-```
+## Quick start
 
-All Events Page:
+Quick start options:
 
-Overview: Discover all listed events. Each event card offers a snapshot of the activity, inviting users to explore further.
+- Download from [Creative Tim](https://www.creative-tim.com/product/nextjs-tailwind-blog-post-details-page?ref=readme-ntbpdp).
 
-Event Details: Clicking on an event card reveals in-depth information, providing insights into what the event entails.
+## Terminal Commands
 
-Investment Option: If interested, users have the opportunity to invest in an event, requiring sufficient funds in their wallet.
+1. Download and Install NodeJs LTS version from [NodeJs Official Page](https://nodejs.org/en/download/).
+2. Navigate to the root ./ directory of the product and run `npm install` to install our local dependencies.
 
-Post-Event Actions: For events that have concluded, users can check the withdrawal rate and participate in voting to support or oppose the fundraising outcome.
+## Documentation
 
-My Events Page:
+The documentation for the Material Dashboard is hosted at our [website](https://www.material-tailwind.com/docs/react/installation?ref=readme-ntbpdp).
 
-Create a Fundraising Event: Initiate your fundraising journey by clicking 'get fund' located at the top right corner.
+## Browser Support
 
-NFT Product Issuance: To feature your event on the All Events page, navigate to 'my event' to edit and issue NFT products, enhancing its visibility and appeal.
+At present, we officially aim to support the last two versions of the following browsers:
 
-Event Customization: Individual event pages allow for comprehensive customization, including title, description, and funding goals, ensuring your event resonates with potential backers.
+<img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/chrome.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/firefox.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/edge.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/safari.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/opera.png" width="64" height="64">
 
-My Collection:
+## Resources
 
-Project Overview: View a comprehensive list of projects you've contributed to, capturing your investment journey.
+- [Live Preview](https://demos.creative-tim.com/nextjs-tailwind-blog-post-details-page?ref=readme-ntbpdp)
+- [Download Page](https://www.creative-tim.com/product/nextjs-tailwind-blog-post-details-page?ref=readme-ntbpdp)
+- Documentation is [here](https://www.material-tailwind.com/docs/react/installation?ref=readme-ntbpdp)
+- [License Agreement](https://www.creative-tim.com/license?ref=readme-ntbpdp)
+- [Support](https://www.creative-tim.com/contact-us?ref=readme-ntbpdp)
+- Issues: [Github Issues Page](https://github.com/creativetimofficial/nextjs-tailwind-blog-post-details-page/issues)
+- [Nepcha Analytics](https://nepcha.com?ref=readme) - Analytics tool for your website
 
-Product Exploration: Delve into specific contributions by clicking on a project card, unveiling the unique products you've acquired.
+## Reporting Issues
 
-Personalization and Notifications: Customize your profile on the left panel, including email settings to stay informed about your investments and purchases, enhancing your platform experience.
+We use GitHub Issues as the official bug tracker for the Nextjs Tailwind Author Page. Here are some advices for our users that want to report an issue:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Make sure that you are using the latest version of the Nextjs Tailwind Author Page. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/product/nextjs-tailwind-blog-post-details-page?ref=readme-ntbpdp).
+2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
+3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
+
+## Technical Support or Questions
+
+If you have questions or need help integrating the product please [contact us](https://www.creative-tim.com/contact-us?ref=readme-ntbpdp) instead of opening an issue.
+
+## Licensing
+
+- Copyright 2023 [Creative Tim](https://www.creative-tim.com?ref=readme-ntbpdp)
+- Creative Tim [license](https://www.creative-tim.com/license?ref=readme-ntbpdp)
+
+## Useful Links
+
+- [More products](https://www.creative-tim.com/templates?ref=readme-ntbpdp) from Creative Tim
+
+- [Tutorials](https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w)
+
+- [Freebies](https://www.creative-tim.com/bootstrap-themes/free?ref=readme-ntbpdp) from Creative Tim
+
+- [Affiliate Program](https://www.creative-tim.com/affiliates/new?ref=readme-ntbpdp) (earn money)
+
+##### Social Media
+
+Twitter: <https://twitter.com/CreativeTim>
+
+Facebook: <https://www.facebook.com/CreativeTim>
+
+Dribbble: <https://dribbble.com/creativetim>
+
+Google+: <https://plus.google.com/+CreativetimPage>
+
+Instagram: <https://instagram.com/creativetimofficial>
