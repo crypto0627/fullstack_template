@@ -26,32 +26,34 @@ task("deploy:token", "Deploy Token")
     await hre.run("compile")
     const [signer]: any = await hre.ethers.getSigners()
     const feeData = await hre.ethers.provider.getFeeData()
-
-    const donateTokenFactory = await hre.ethers.getContractFactory("contracts/DonateToken.sol:DonateToken", )
-    const amount = BigInt(100000000000000)
-    const donateTokenDeployContract: any = await donateTokenFactory.connect(signer).deploy(amount, {
+    const balance = await hre.ethers.provider.getBalance(signer.address)
+    console.log(`balance: ${balance}`)
+    console.log(`maxPriorityFeePerGas: ${feeData.maxPriorityFeePerGas}`)
+    const pawPointFactory = await hre.ethers.getContractFactory("contracts/Pawpoint.sol:Pawpoint", )
+    const amount = BigInt("1000000000000000000000000000000")
+    const pawPointDeployContract: any = await pawPointFactory.connect(signer).deploy(amount, {
       maxPriorityFeePerGas: feeData.maxPriorityFeePerGas,
       maxFeePerGas: feeData.maxFeePerGas,
-      // gasLimit: 6000000, // optional: for some weird infra network
+      gasLimit: 3000000, // optional: for some weird infra network
     })
-    console.log(`DonateToken.sol deployed to ${donateTokenDeployContract.address}`)
+    console.log(`Pawpoint.sol deployed to ${pawPointDeployContract.address}`)
 
     const address = {
-      main: donateTokenDeployContract.address,
+      main: pawPointDeployContract.address,
     }
     const addressData = JSON.stringify(address)
-    writeFileSync(`scripts/address/${hre.network.name}/`, "DonateToken.json", addressData)
+    writeFileSync(`scripts/address/${hre.network.name}/`, "Pawpoint.json", addressData)
 
-    await donateTokenDeployContract.deployed()
+    await pawPointDeployContract.deployed()
 
     if (verify) {
       console.log("verifying contract...")
-      await donateTokenDeployContract.deployTransaction.wait(3)
+      await pawPointDeployContract.deployTransaction.wait(3)
       try {
         await hre.run("verify:verify", {
-          address: donateTokenDeployContract.address,
-          constructorArguments: [100000000000000],
-          contract: "contracts/DonateToken.sol:DonateToken",
+          address: pawPointDeployContract.address,
+          constructorArguments: ["1000000000000000000000000000000"],
+          contract: "contracts/Pawpoint.sol:Pawpoint",
         })
       } catch (e) {
         console.log(e)
@@ -66,22 +68,23 @@ task("deploy:nftFactory", "Deploy NFT factory")
     await hre.run("compile")
     const [signer]: any = await hre.ethers.getSigners()
     const feeData = await hre.ethers.provider.getFeeData()
-
-    const nftContractFactory = await hre.ethers.getContractFactory("contracts/PoolFactory.sol:PoolFactory", )
+    const Pawpoint = readFileSync(`scripts/address/${hre.network.name}/`, "Pawpoint.json")
+    const pawpointAddress = JSON.parse(Pawpoint).main
+    const nftContractFactory = await hre.ethers.getContractFactory("contracts/CouponFactory.sol:CouponFactory", )
     const nftDeployContract: any = await nftContractFactory.connect(signer).deploy(
-      //my wallet address
+        pawpointAddress,
       {
         maxPriorityFeePerGas: feeData.maxPriorityFeePerGas,
         maxFeePerGas: feeData.maxFeePerGas,
-        // gasLimit: 6000000, // optional: for some weird infra network
+        gasLimit: 6000000, // optional: for some weird infra network
     })
-    console.log(`PoolFactory.sol deployed to ${nftDeployContract.address}`)
+    console.log(`CouponFactory.sol deployed to ${nftDeployContract.address}`)
 
     const address = {
       main: nftDeployContract.address,
     }
     const addressData = JSON.stringify(address)
-    writeFileSync(`scripts/address/${hre.network.name}/`, "PoolFactory.json", addressData)
+    writeFileSync(`scripts/address/${hre.network.name}/`, "CouponFactory.json", addressData)
 
     await nftDeployContract.deployed()
 
@@ -91,7 +94,10 @@ task("deploy:nftFactory", "Deploy NFT factory")
       try {
         await hre.run("verify:verify", {
           address: nftDeployContract.address,
-          contract: "contracts/PoolFactory.sol:PoolFactory",
+          constructorArguments: [
+            pawpointAddress,
+          ],
+          contract: "contracts/CouponFactory.sol:CouponFactory",
         })
       } catch (e) {
         console.log(e)

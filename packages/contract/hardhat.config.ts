@@ -2,7 +2,6 @@ import { HardhatUserConfig } from "hardhat/config"
 import { NetworkUserConfig } from "hardhat/types"
 // hardhat plugin
 import "@nomiclabs/hardhat-ethers"
-// import "@nomicfoundation/hardhat-verify"
 import "@nomicfoundation/hardhat-toolbox"
 
 import { config as dotenvConfig } from "dotenv"
@@ -23,6 +22,10 @@ const chainIds = {
   quorum: 570,
   opbnb: 204,
   "opbnb-testnet": 5611,
+  zircuit: 48899,
+  "scroll-sepolia-testnet": 534351,
+  "op-sepolia": 11155420,
+  "linea-goerli": 59140,
 }
 
 // Ensure that we have all the environment variables we need.
@@ -47,6 +50,18 @@ function getChainConfig (chain: keyof typeof chainIds): NetworkUserConfig {
       break
     case "opbnb-testnet":
       jsonRpcUrl = "https://opbnb-testnet-rpc.bnbchain.org"
+      break
+    case "zircuit":
+      jsonRpcUrl = "https://zircuit1.p2pify.com"
+      break
+    case "scroll-sepolia-testnet":
+      jsonRpcUrl = "https://scroll-sepolia.blockpi.network/v1/rpc/public"
+      break
+    case "op-sepolia":
+      jsonRpcUrl = "https://sepolia.optimism.io"
+      break
+    case "linea-goerli":
+      jsonRpcUrl = "https://rpc.goerli.linea.build"
       break
     default:
       jsonRpcUrl = `https://${chain}.infura.io/v3/${infuraApiKey}`
@@ -75,6 +90,10 @@ const config: HardhatUserConfig = {
     quorum: getChainConfig("quorum"),
     opbnb: getChainConfig("opbnb"),
     "opbnb-testnet": getChainConfig("opbnb-testnet"),
+    zircuit: getChainConfig("zircuit"),
+    "scroll-sepolia-testnet": getChainConfig("scroll-sepolia-testnet"),
+    "op-sepolia": getChainConfig("op-sepolia"),
+    "linea-goerli": getChainConfig("linea-goerli"),
   },
   paths: {
     artifacts: "./artifacts",
@@ -113,6 +132,10 @@ const config: HardhatUserConfig = {
       opbnb: process.env.BSCSCAN_API_KEY || "",
       "opbnb-testnet": process.env.BSCSCAN_API_KEY || "",
       quorum: "NO_API_KEY",
+      zircuit: process.env.ZIRCUIT_API_KEY || "",
+      "scroll-sepolia-testnet": process.env.SCROLL_API_KEY || "",
+      "op-sepolia": process.env.OPSEPOLIA_API_KEY || "",
+      "linea-goerli": process.env.LINEA_API_KEY || "",
     },
     // https://docs.bscscan.com/v/opbnb-testnet/
     customChains: [{
@@ -136,7 +159,36 @@ const config: HardhatUserConfig = {
         apiURL: "https://api-opbnb-testnet.bscscan.com/api",
         browserURL: "https://opbnb-testnet.bscscan.com/",
       },
-    }],
+    },{
+      network: "zircuit",
+      chainId: chainIds["zircuit"],
+      urls: {
+        apiURL: 'https://explorer.zircuit.com/api/contractVerifyHardhat',
+        browserURL: 'https://explorer.zircuit.com',
+      }
+    },{
+      network: "scroll-sepolia-testnet",
+      chainId: chainIds["scroll-sepolia-testnet"],
+      urls: {
+        apiURL: "https://api-sepolia.scrollscan.com/api",
+        browserURL: "https://sepolia.scrollscan.com"
+      }
+    },{
+      network: "op-sepolia",
+      chainId: chainIds["op-sepolia"],
+      urls: {
+        apiURL: "https://api-sepolia-optimistic.etherscan.io/api",
+        browserURL: "https://sepolia-optimism.etherscan.io"
+      }
+    },{
+      network: "linea-goerli",
+      chainId: chainIds["linea-goerli"],
+      urls: {
+        apiURL: "https://api-testnet.lineascan.build/api",
+        browserURL: "https://goerli.lineascan.build"
+      }
+    }
+    ],
   },
 
   gasReporter: {

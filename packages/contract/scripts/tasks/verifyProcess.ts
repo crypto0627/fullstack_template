@@ -10,7 +10,6 @@ task("verify:contract", "Verify deployed contract")
       const addressData = JSON.parse(contractAddress.toString())
       await hre.run("verify:verify", {
         address: addressData.main,
-        constructorArguments: [],
         contract: `contracts/${file}.sol:${contract}`,
       })
     } catch (e) {
