@@ -4,9 +4,10 @@ compatibility_date = "2023-12-01"
 # [vars]
 # MY_VAR = "my-variable"
 
-# [[kv_namespaces]]
-# binding = "MY_KV_NAMESPACE"
-# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+[[d1_databases]]
+binding = "DB" # i.e. available in your Worker on env.DB
+database_name = "serverless"
+database_id = "b83635fb-d3ec-4b48-8ec6-00a1fcb84604"
 
 # [[r2_buckets]]
 # binding = "MY_BUCKET"
@@ -16,3 +17,6 @@ compatibility_date = "2023-12-01"
 # binding = "DB"
 # database_name = "my-database"
 # database_id = ""
+
+# [ai]
+# binding = "AI"

@@ -1,13 +1,13 @@
 {
   "scripts": {
-    "dev": "wrangler dev src/app.ts",
-    "deploy": "wrangler deploy --minify src/app.ts"
+    "dev": "wrangler dev src/index.ts",
+    "deploy": "wrangler deploy --minify src/index.ts"
   },
   "dependencies": {
-    "hono": "^4.1.5"
+    "hono": "^4.2.2"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20240329.0",
-    "wrangler": "^3.32.0"
+    "@cloudflare/workers-types": "^4.20240405.0",
+    "wrangler": "^3.47.0"
   }
 }
