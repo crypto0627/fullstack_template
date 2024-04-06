@@ -1,14 +1,25 @@
 import { Hono } from 'hono'
-import { cors } from 'hono/cors'
+import { etag } from 'hono/etag'
+import { logger } from 'hono/logger'
+import { jwt } from 'hono/jwt'
 
-type Bindings = {
-  serverless: d1_databases
-}
+const app = new Hono()
 
-const app = new Hono<{ Bindings: Bindings }>()
+app.use(etag(), logger())
 
 app.get('/', (c) => {
   return c.text('Hello Hono!')
+})
+
+app.use(
+  '/auth/*',
+  jwt({
+    secret: 'it-is-very-secret',
+  })
+)
+
+app.get('/auth/page', (c) => {
+  return c.text('You are authorized')
 })
 
 export default app
